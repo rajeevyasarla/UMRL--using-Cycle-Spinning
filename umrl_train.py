@@ -284,7 +284,7 @@ for epoch in range(opt.niter):
         tmp = -(4.0/(width*height))*torch.sum(torch.log(conf_128+sng))- (2.0/(width*height))*torch.sum(torch.log(conf_256+sng)) - (1.0/(width*height))*torch.sum(torch.log(conf_512+sng))
         tmp = tmp.cpu()
         if tmp.data[0]<0.25:
-            lam_cmp = lam_cmp = 0.09*lam_cmp*(np.exp(5.4*tmp.data[0])-0.98)#0.09*lam_cmp/(np.exp(1.0*tmp.data[0]))
+            lam_cmp = 0.09*lam_cmp*(np.exp(5.4*tmp.data[0])-0.98)#0.09*lam_cmp/(np.exp(1.0*tmp.data[0]))
             lam_cmp = lam_cmp.cuda()
             if ganIterations % (100*opt.display) == 0:
                 print(tmp.data[0],lam_cmp)
