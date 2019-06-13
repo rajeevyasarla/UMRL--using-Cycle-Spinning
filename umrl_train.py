@@ -127,7 +127,7 @@ netG=net.UMRL()
 if opt.netG != '':
   netG.load_state_dict(torch.load(opt.netG))
 print(netG)
-netG.load_state_dict(torch.load('./umrl_dy_alldts/NetMSR_epoch_3.pth'))
+
 
 
 

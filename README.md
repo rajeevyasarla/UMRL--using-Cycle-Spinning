@@ -16,6 +16,11 @@ Uncertainty Guided Multi-Scale Residual Learning-using a Cycle Spinning CNN for 
 
 We present a novel Uncertainty guided Multi-scale Residual Learning (UMRL) network to address the single image de-raining. The proposed network attempts to  address this issue by learning the rain content at different scales and using them to estimate the final de-rained output.  In addition, we introduce a technique which guides the network to learn the network weights based on the confidence measure about the estimate.  Furthermore, we introduce a new training and testing procedure based on the notion of cycle spinning to improve the final de-raining performance.
 
+## Prerequisites:
+1. Linux
+2. Python 2 or 3
+3. CPU or NVIDIA GPU + CUDA CuDNN (CUDA 8.0)
+
 ## To test UMRL:
 python umrl_test.py --dataroot ./facades/validation --valDataroot ./facades/validation --netG ./pre_trained/Net_DIDMDN.pth
 

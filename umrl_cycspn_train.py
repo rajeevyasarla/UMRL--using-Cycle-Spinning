@@ -127,7 +127,7 @@ netG=net.UMRL()
 if opt.netG != '':
   netG.load_state_dict(torch.load(opt.netG))
 print(netG)
-netG.load_state_dict(torch.load('./umrl_dy_alldts/NetMSR_epoch_3.pth'))
+
 
 
 
@@ -250,6 +250,7 @@ for epoch in range(opt.niter):
     batch_size = target_cpu.size(0)
     width = target_cpu.size(2)
     height = target_cpu.size(3)
+    # print(width,height)
 
     target_cpu, input_cpu = target_cpu.float().cuda(), input_cpu.float().cuda()
 
@@ -262,16 +263,16 @@ for epoch in range(opt.niter):
     target.data.resize_as_(target_cpu).copy_(target_cpu)
     input.data.resize_as_(input_cpu).copy_(input_cpu)
 
-    row = 50*random.randint(0, 10)
-    col = 50*random.randint(0, 10)
-    target[:,:,:row,:col] = target_cyc[:,:,512-row:,512-col:]
-    target[:,:,row:,col:] = target_cyc[:,:,:512-row,:512-col]
-    target[:,:,row:,:col] = target_cyc[:,:,:512-row,512-col:]
-    target[:,:,:row,col:] = target_cyc[:,:,512-row:,:512-col]
-    input[:,:,:row,:col] = input_cyc[:,:,512-row:,512-col:]
-    input[:,:,row:,col:] = input_cyc[:,:,:512-row,:512-col]
-    input[:,:,row:,:col] = input_cyc[:,:,:512-row,512-col:]
-    input[:,:,:row,col:] = input_cyc[:,:,512-row:,:512-col]
+    row = 50*random.randint(0, width//50)
+    col = 50*random.randint(0, height//50)
+    target[:,:,:row,:col] = target_cyc[:,:,width-row:,height-col:]
+    target[:,:,row:,col:] = target_cyc[:,:,:width-row,:height-col]
+    target[:,:,row:,:col] = target_cyc[:,:,:width-row,height-col:]
+    target[:,:,:row,col:] = target_cyc[:,:,width-row:,:height-col]
+    input[:,:,:row,:col] = input_cyc[:,:,width-row:,height-col:]
+    input[:,:,row:,col:] = input_cyc[:,:,:width-row,:height-col]
+    input[:,:,row:,:col] = input_cyc[:,:,:width-row,height-col:]
+    input[:,:,:row,col:] = input_cyc[:,:,width-row:,:height-col]
     
 
 
@@ -303,7 +304,7 @@ for epoch in range(opt.niter):
         tmp = -(4.0/(width*height))*torch.sum(torch.log(conf_128+sng))- (2.0/(width*height))*torch.sum(torch.log(conf_256+sng)) - (1.0/(width*height))*torch.sum(torch.log(conf_512+sng))
         tmp = tmp.cpu()
         if tmp.data[0]<0.25:
-            lam_cmp = 0.09*lam_cmp/(np.exp(1.0*tmp.data[0]))
+            lam_cmp = 0.09*lam_cmp*(np.exp(5.4*tmp.data[0])-0.98)
             lam_cmp = lam_cmp.cuda()
             if ganIterations % (100*opt.display) == 0:
                 print(tmp.data[0],lam_cmp)
