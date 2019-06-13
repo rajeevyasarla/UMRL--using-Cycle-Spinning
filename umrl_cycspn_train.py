@@ -18,9 +18,8 @@ from misc import *
 import models.derain_mulcmp as net
 
 
-
-from myutils.vgg16 import Vgg16
 from myutils import utils
+from myutils.vgg16 import Vgg16
 import pdb
 import torch.nn.functional as F
 #from PIL import Image
@@ -140,12 +139,12 @@ label = torch.FloatTensor(opt.batchSize, outputChannelSize, opt.imageSize, opt.i
 input = torch.FloatTensor(opt.batchSize, inputChannelSize, opt.imageSize, opt.imageSize)
 target_cyc= torch.FloatTensor(opt.batchSize, outputChannelSize, opt.imageSize, opt.imageSize)
 input_cyc = torch.FloatTensor(opt.batchSize, inputChannelSize, opt.imageSize, opt.imageSize)
-target_128 = torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/4), (opt.imageSize/4))
-label_128 = torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/4), (opt.imageSize/4))
-input_128 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize/4), (opt.imageSize/4))
-target_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/2), (opt.imageSize/2))
-label_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/2), (opt.imageSize/2))
-input_256 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize/2), (opt.imageSize/2))
+target_128 = torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//4), (opt.imageSize//4))
+label_128 = torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//4), (opt.imageSize//4))
+input_128 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize//4), (opt.imageSize//4))
+target_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//2), (opt.imageSize//2))
+label_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//2), (opt.imageSize//2))
+input_256 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize//2), (opt.imageSize//2))
 
 
 
@@ -153,10 +152,10 @@ input_256 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize/2)
 val_target = torch.FloatTensor(opt.valBatchSize, outputChannelSize, opt.imageSize, opt.imageSize)
 val_label = torch.FloatTensor(opt.valBatchSize, outputChannelSize, opt.imageSize, opt.imageSize)
 val_input = torch.FloatTensor(opt.valBatchSize, inputChannelSize, opt.imageSize, opt.imageSize)
-val_target_128= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/4), (opt.imageSize/4))
-val_input_128 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize/4), (opt.imageSize/4))
-val_target_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize/2), (opt.imageSize/2))
-val_input_256 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize/2), (opt.imageSize/2))
+val_target_128= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//4), (opt.imageSize//4))
+val_input_128 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize//4), (opt.imageSize//4))
+val_target_256= torch.FloatTensor(opt.batchSize, outputChannelSize, (opt.imageSize//2), (opt.imageSize//2))
+val_input_256 = torch.FloatTensor(opt.batchSize, inputChannelSize, (opt.imageSize//2), (opt.imageSize//2))
 
 
 ato = torch.FloatTensor(opt.batchSize, inputChannelSize, opt.imageSize, opt.imageSize)
