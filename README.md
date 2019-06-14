@@ -1,7 +1,7 @@
 # UMRL--using-Cycle-Spinning
 Uncertainty Guided Multi-Scale Residual Learning-using a Cycle Spinning CNN for Single Image De-Raining
 
-[Rajeev Yasarla](https://scholar.google.com/citations?user=R8dwrxEAAAAJ&hl=en&oi=ao), [Vishal M. Patel](http://www.rci.rutgers.edu/~vmp93/)
+[Rajeev Yasarla](https://scholar.google.com/citations?user=R8dwrxEAAAAJ&hl=en&oi=ao), [Vishal M. Patel](https://engineering.jhu.edu/ece/faculty/vishal-m-patel/)
 
 [Paper Link](http://openaccess.thecvf.com/content_CVPR_2019/papers/Yasarla_Uncertainty_Guided_Multi-Scale_Residual_Learning-Using_a_Cycle_Spinning_CNN_for_CVPR_2019_paper.pdf) (CVPR'19)
 
