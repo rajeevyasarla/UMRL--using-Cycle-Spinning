@@ -3,7 +3,7 @@ Uncertainty Guided Multi-Scale Residual Learning-using a Cycle Spinning CNN for 
 
 [Rajeev Yasarla](https://sites.google.com/view/rajeevyasarla/home), [Vishal M. Patel](https://engineering.jhu.edu/ece/faculty/vishal-m-patel/)
 
-[Paper Link](http://openaccess.thecvf.com/content_CVPR_2019/papers/Yasarla_Uncertainty_Guided_Multi-Scale_Residual_Learning-Using_a_Cycle_Spinning_CNN_for_CVPR_2019_paper.pdf) (CVPR'19)
+[Paper Link](https://arxiv.org/abs/1906.11129) (CVPR'19)
 
 
     @InProceedings{Yasarla_2019_CVPR,
