@@ -34,4 +34,4 @@ python umrl_cycspn_test.py --dataroot ./facades/validation --valDataroot ./facad
 python umrl_cycspn_train.py  --dataroot <dataset_path>  --valDataroot ./facades/validation --exp ./check --netG ./pre_trained/Net_DIDMDN.pth
 
 ## Acknowledgments
-Thanks for the help from [He Zhang](https://sites.google.com/site/hezhangsprinter/)
+Thanks for the discussions with, and help from [He Zhang](https://sites.google.com/site/hezhangsprinter/)
